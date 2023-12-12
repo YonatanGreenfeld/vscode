@@ -71,7 +71,7 @@ function findSpecificGit(path: string, onValidate: (path: string) => boolean): P
 		}
 
 		const buffers: Buffer[] = [];
-		const child = cp.spawn(path, ['--version']);
+		const child = cp.execFile(path, ['--version']);
 		child.stdout.on('data', (b: Buffer) => buffers.push(b));
 		child.on('error', cpErrorHandler(e));
 		child.on('exit', code => code ? e(new Error('Not found')) : c({ path, version: parseVersion(Buffer.concat(buffers).toString('utf8').trim()) }));
