@@ -183,7 +183,7 @@ export class SnapUpdateService extends AbstractUpdateService {
 
 		// Allow 3 seconds for VS Code to close
 		spawn('sleep 3 && ' + path.basename(process.argv[0]), {
-			shell: true,
+			shell: false,
 			detached: true,
 			stdio: 'ignore',
 		});
