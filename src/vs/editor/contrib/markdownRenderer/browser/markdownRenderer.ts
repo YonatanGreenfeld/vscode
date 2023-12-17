@@ -86,7 +86,7 @@ export class MarkdownRenderer {
 
 				const element = document.createElement('span');
 
-				element.innerHTML = (MarkdownRenderer._ttpTokenizer?.createHTML(html) ?? html) as string;
+				element.textContent = (MarkdownRenderer._ttpTokenizer?.createHTML(html) ?? html) as string;
 
 				// use "good" font
 				if (this._options.editor) {
